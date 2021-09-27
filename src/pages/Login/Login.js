@@ -14,7 +14,7 @@ const actions = [
 ];
 
 function Login() {
-  const [reducerState, dispatch] = useStateValue()
+  const [reducerState, dispatch] = useStateValue(0)
   const [isLoggedIn, setIsLoggedIn] = useState(true)
   const [type, setType] = useState("student")
   let history = useHistory();

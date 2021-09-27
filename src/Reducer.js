@@ -2,7 +2,7 @@ export const initialState = {
   type: "",
   sid: "",
   email: "",
-  queries: []
+  queries: ""
 }
 
 const StateReducer = (reducerState, action) => {
