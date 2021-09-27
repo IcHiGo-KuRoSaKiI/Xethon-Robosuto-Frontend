@@ -23,6 +23,21 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>Issue Tracker App</title>
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "95deb4be-0790-4e4d-a014-5a670b9b7805", // The ID of this integration.
+      region: "us-south", // The region your integration is hosted in.
+      serviceInstanceID: "7a1acab5-0a17-46a4-9021-36f41936867c", // The ID of your service instance.
+      onLoad: function (instance) { instance.render(); }
+    };
+    setTimeout(function () {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+        (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+        "/WatsonAssistantChatEntry.js"
+      document.head.appendChild(t);
+    });
+  </script>
 </head>
 
 <body>
