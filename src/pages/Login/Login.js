@@ -5,6 +5,7 @@ import './Login.css'
 import Login_Img from './login_img.jpeg'
 import { Link, Redirect } from "react-router-dom";
 import Select from 'react-select';
+import { useStateValue } from "../../StateProvider"
 
 const actions = [
   { label: "Admin", value: 1 },
@@ -13,6 +14,7 @@ const actions = [
 ];
 
 function Login() {
+  const [reducerState, dispatch] = useStateValue()
   const [isLoggedIn, setIsLoggedIn] = useState(true)
   const [type, setType] = useState("student")
   let history = useHistory();
@@ -21,6 +23,11 @@ function Login() {
     console.log("login clicked", isLoggedIn, type)
     sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
     history.push("/dashboard");
+    // dispatch({
+    //   type: 'USER_LOGIN',
+    //   type: data.type,
+    //   sid: data.sid
+    // })
   }
 
   return (
