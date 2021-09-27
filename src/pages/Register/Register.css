@@ -50,8 +50,12 @@ height: 1000px;
 
 #drop_down_signup{
     background-color:blue;
-    width:280px;
-    border-radius:10px;
+    width:280px !important;
+    /* border-radius:10px; */
     margin-left:55px;
     text-align: center;
+}
+
+.css-1s2u09g-control{
+    width: auto;
 }
