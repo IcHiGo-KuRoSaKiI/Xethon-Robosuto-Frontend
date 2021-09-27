@@ -5,6 +5,7 @@ import Login_Img from './login_img.jpeg'
 import { Link, Redirect } from "react-router-dom";
 import Select from 'react-select';
 import { useStateValue } from "../../StateProvider"
+import endPoints from "../../utils/EndPointApi"
 
 const actions = [
   { label: "Admin", value: 1 },
@@ -14,93 +15,67 @@ const actions = [
 
 function Login() {
   const [reducerState, dispatch] = useStateValue()
-  const [isLoading, setIsLoading] = useState()
+  const [selectedType, setSelectedType] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [emailerrorMessage, setEmailerrorMessage] = useState(false);
-  const [passworderrorMessage, setPassworderrorMessage] = useState(false);
-  const [authenticate, setAuthenticated] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true)
   const [type, setType] = useState("student")
+  const [authenticate, setAuthenticated] = useState(false)
   let history = useHistory();
 
-  const LoginHandler = () => {
+  const LoginHandler2 = () => {
     console.log("login clicked", isLoggedIn, type)
     sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
     history.push("/dashboard");
-    // dispatch({
-    //   type: 'USER_LOGIN',
-    //   type: data.type,
-    //   sid: data.sid
-    // })
   }
 
   const emailChangeHandler = (event) => {
+    console.log(event.target.value)
     setEnteredEmail(event.target.value);
   };
   const passwordChangeHandler = (event) => {
+    console.log(event.target.value)
     setEnteredPassword(event.target.value);
   };
-
-
-
-
+  const userTypeHandler = (event) => {
+    setSelectedType(event.label);
+    console.log(event.label)
+  };
   const LoginHandler = (event) => {
-
     event.preventDefault();
-    setIsLoading(true)
     const credentials = {
-      userType: "Student",
-      username: "Student",
-      email: enteredEmail,
+      userType: selectedType,
+      username: enteredEmail,
       password: enteredPassword,
     };
-
     console.log(credentials)
-    postData(endPoints.loginURL, credentials)
+    const uri = endPoints.loginURL + `?username=${enteredEmail}&password=${enteredPassword}`
+    console.log("uri: ", uri)
+    showData(uri)
       .then(data => {
-        // setIsLoading(true)
-        console.log(data);
-        if (data.email == "Invalid") {
-          setEmailerrorMessage(true);
-          setIsLoading(false)
-        }
-        else if (data.password == "Invalid") {
-          setPassworderrorMessage(true);
-          setIsLoading(false)
-        }
-        if (data.token) {
-          console.log("entered here")
-          sessionStorage.setItem('token', JSON.stringify(data.token));
-          // history.push("/mydashboard")
-          // setAuthenticated(true)
+        console.log(data, "abc");
+        if (data[0].email) {
+          console.log("LOGIN SUCCESSFULL")
+          // sessionStorage.setItem('token', JSON.stringify(data.token));
+          setType(data[0].userType)
           setAuthenticated(true)
-          setIsLoading(false)
+          dispatch({
+            type: 'USER_LOGIN',
+            type: data[0].type,
+            sid: data._id
+          })
+          // sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
+          // history.push("/dashboard")
         }
-        dispatch({
-          type: 'USER_LOGIN',
-          token: data.token,
-          userRole: data.role
-        }) // JSON data parsed by data.json() call
-
-
+        // dispatch({
+        //   type: 'USER_LOGIN',
+        //   type: data.token,
+        //   userRole: data.role
+        // }) // JSON data parsed by data.json() call
       });
-
     setEnteredEmail("");
     setEnteredPassword("");
   };
-
-
-
-
-
-
-
-
-
-
-
-
 
   async function postData(url, data) {
     console.log(data)
@@ -116,6 +91,18 @@ function Login() {
     return response.json();
   }
 
+  async function showData(url) {
+    // setIsLoading(true)
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    const Data = await response.json();
+    // setIsLoading(false)
+    return Data
+  }
 
   if (authenticate == true) {
     console.log("login clicked", isLoggedIn, type)
@@ -132,7 +119,7 @@ function Login() {
             <img src={Login_Img} id="login_img"></img>
           </tr>
           <tr>
-            <td><Select options={actions} id="drop_down_login" /></td>
+            <td><Select options={actions} id="drop_down_login" onChange={userTypeHandler} /></td>
           </tr>
           <tr>
             <td>{<input class="login_inputs"

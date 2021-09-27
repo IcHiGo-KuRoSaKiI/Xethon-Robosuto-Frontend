@@ -12,7 +12,7 @@ const StateReducer = (reducerState, action) => {
       console.log("user_login")
       return {
         ...reducerState,
-        type: action.type,
+        type: action.type2,
         sid: action.sid
       }
     default:

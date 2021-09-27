@@ -5,14 +5,17 @@ import Register from './pages/Register/Register';
 import PrivateRoute from './PrivateRoute';
 import StudentHome from "./pages/Student/StudentHome";
 import RaiseQuery from "./pages/Admin/ViewIssues";
+import { useStateValue } from "./StateProvider"
 
 function App() {
-  const loginStatus = JSON.parse(sessionStorage.getItem("isLoggedIn"));
+  // const loginStatus = JSON.parse(sessionStorage.getItem("isLoggedIn"));
+  const [reducerState, dispatch] = useStateValue()
+  const type2 = reducerState.type;
   return (
     <Router>
       <div className="App">
         <Switch>
-          <PrivateRoute path="/dashboard" isLoggedIn={loginStatus} />
+          <PrivateRoute path="/dashboard" isLoggedIn={type2} />
           <Route path="/register">
             <Register />
           </Route>

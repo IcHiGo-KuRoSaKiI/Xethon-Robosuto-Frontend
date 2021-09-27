@@ -2,17 +2,19 @@ import React from 'react';
 import { Route, Redirect } from "react-router-dom";
 import StudentHome from "./pages/Student/StudentHome";
 import RaiseQuery from "./pages/Admin/ViewIssues";
+import { useStateValue } from "./StateProvider"
 
 
 function PrivateRoute({ isLoggedIn: isLoggedIn, ...rest }) {
-  console.log("in private route", isLoggedIn)
+  const [reducerState, dispatch] = useStateValue()
+  console.log("in private route", isLoggedIn, reducerState)
   return (
     <Route
       {...rest}
       render={(props) => {
         if (isLoggedIn == "student") {
           return <StudentHome />;
-        } else if (isLoggedIn == "admin") {
+        } else if (isLoggedIn == "Admin") {
           return <RaiseQuery />;
         }
         else {
