@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Header from '../Components/Header/Header';
-import QueryTracker from "./QueryTracker/QueryTracker"
+// import QueryTracker from "./QueryTracker/QueryTracker"
 import RaiseQuery from "./RaiseQuery/RaiseQuery"
 import QueryHistory from "./QueryHistory/QueryHistory"
 
@@ -17,7 +17,7 @@ function StudentHome(props) {
           <TabList>
             <Tab><h4><b>Raise Query</b></h4></Tab>
             <Tab><h4><b>Query History</b></h4></Tab>
-            <Tab><h4><b>Query Tracker</b></h4></Tab>
+            {/* <Tab><h4><b>Query Tracker</b></h4></Tab> */}
           </TabList>
           <TabPanel className="left">
             <RaiseQuery />
@@ -25,9 +25,9 @@ function StudentHome(props) {
           <TabPanel>
             <QueryHistory />
           </TabPanel>
-          <TabPanel>
+          {/* <TabPanel>
             <QueryTracker />
-          </TabPanel>
+          </TabPanel> */}
         </Tabs>
       </Container>
     </div>

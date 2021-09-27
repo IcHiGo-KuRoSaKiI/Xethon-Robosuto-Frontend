@@ -6,23 +6,21 @@ import StudentHome from "./pages/Student/StudentHome"
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <div className="App">
-          <Switch>
-            <Route path="/studentHome">
-              <StudentHome />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/">
-              <Login />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/studentHome">
+            <StudentHome />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/">
+            <Login />
+          </Route>
+        </Switch>
+      </div>
+    </Router >
   );
 }
 

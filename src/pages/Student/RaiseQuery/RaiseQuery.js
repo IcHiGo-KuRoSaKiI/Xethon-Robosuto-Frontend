@@ -33,14 +33,14 @@ function RaiseQuery(props) {
           <Form.Control as="textarea" rows={2} required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label><b>Issue Department</b></Form.Label>
-          <Select options={departments} />
-          {/* <Form.Select>
+          <Form.Label><b>Issue category</b></Form.Label>
+          {/* <Select options={departments} /> */}
+          <Form.Select required>
             <option>Open this select menu</option>
             <option value="1">Department 1</option>
             <option value="2">Department 2</option>
             <option value="3">Department 3</option>
-          </Form.Select> */}
+          </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label><b>Screenshot related to the issue (if any)</b></Form.Label><br />
@@ -53,5 +53,4 @@ function RaiseQuery(props) {
     </Container >
   );
 }
-
 export default RaiseQuery;

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './Login.css'
 import Login_Img from './login_img.jpeg'
-import Select from 'react-select';
 import { Link } from "react-router-dom";
+import Select from 'react-select';
 
 const actions = [
   { label: "Admin", value: 1 },
