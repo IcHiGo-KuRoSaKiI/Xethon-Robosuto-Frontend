@@ -1,0 +1,67 @@
+.accordion-item{
+    background-color: #d0aae6 !important;
+    border-radius: 20px !important;
+    margin: 15px 20px;
+  }
+  .accordion-button{
+    background-color: #d0aae6 !important;
+    color: black !important;
+    border-radius: 20px !important;
+    border-bottom: 0px transparent !important;
+  }
+  .accordion-button:focus{
+    border: #d0aae6 !important;
+  }
+  .query_history_button{
+    border-radius: 15px;
+    font-weight: 700;
+    background-color: white;
+    color: black;
+    border-color: blanchedalmond;
+  }
+
+  .detail_issue_view{
+    background-color: white;
+  }
+  .query_history_button1{
+    background-color:red;
+    margin-left:400px;
+    
+    margin-bottom:20px;
+  }
+
+  #issue_id_admin_alot{
+    background-color:yellow;
+    width:210px;
+    height:35px;
+    text-align:center;
+    border-radius:20px;
+    font-size:20px;
+    margin-left: 500px;;
+  }
+
+  .alotment_dropdowns{
+    width:100px !important;
+  }
+
+#alot_issue_desc{
+  width: 750px;
+  
+  }
+
+  #alotting_issue_desc_head{
+    font-size:22px;
+    margin-top:-90px;
+  }
+
+#alot_issue_head_main{
+  margin-left: 520px;;
+}
+#tracker_id_css{
+  background-color:yellow;
+  height:28px;
+  width:150px;
+  text-align:center;
+  border-radius:20px;
+
+}
