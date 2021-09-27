@@ -1,0 +1,68 @@
+.left{
+    text-align: left;
+    width: 650px;
+  }
+  
+  .tabs{
+    text-align: left;
+  }
+  
+  .mainBody{
+    margin: 20px 0px !important;
+  }
+  
+  .form-control{
+    border-radius: 1.25rem !important;
+  }
+  
+  .form-select{
+    border-radius: 1.25rem !important;
+  }
+  
+  .submitButton{
+    background-color: #A409E6  !important;
+    border-color: #DCBAF2 !important;
+    border-radius: 15px !important;
+  }
+  
+  .centre{
+    text-align: center;
+  }
+  
+  
+  
+  
+  
+  
+  
+  .hello{
+    background-color:  #67038B,#A24BD4,#FAD7F7,#DCBAF2,#F5C631,#19882C,#32EFC9,#BAD8F2,#A409E6;
+  }
+  
+  .check{
+    border: 2px solid black;
+  }
+  .piechart1 {
+    margin-top: 100px;
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: conic-gradient(
+        pink 80deg, 
+        lightblue 0 208deg, 
+        orange 0);
+}
+.piechart2 {
+    margin-top: 100px;
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: conic-gradient(
+        pink 80deg, 
+        lightblue 0 290deg, 
+        orange 0);
+}

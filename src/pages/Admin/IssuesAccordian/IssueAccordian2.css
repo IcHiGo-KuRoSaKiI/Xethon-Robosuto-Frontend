@@ -1,0 +1,37 @@
+.accordion-item{
+    background-color: #d0aae6 !important;
+    border-radius: 20px !important;
+    margin: 15px 20px;
+  }
+  .accordion-button{
+    background-color: #d0aae6 !important;
+    color: black !important;
+    border-radius: 20px !important;
+    border-bottom: 0px transparent !important;
+  }
+  .accordion-button:focus{
+    border: #d0aae6 !important;
+  }
+
+  .justify-content-around2{
+      padding-left: 50px;
+     
+  }
+  .query_history_button{
+    border-radius: 15px;
+    font-weight: 700;
+    background-color: white;
+    color: black;
+    border-color: blanchedalmond;
+  }
+
+  .detail_issue_view{
+    background-color: white;
+  }
+  .query_history_button1{
+    background-color:purple
+  }
+
+  .details_issue2{
+      background-color:blue
+  }

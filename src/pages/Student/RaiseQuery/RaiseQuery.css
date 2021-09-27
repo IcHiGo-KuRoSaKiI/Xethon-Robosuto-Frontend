@@ -1,0 +1,28 @@
+.submitButton{
+  background-color: #A409E6  !important;
+  border-color: #DCBAF2 !important;
+  border-radius: 15px !important;
+}
+
+.form-control{
+  border-radius: 1.25rem !important;
+}
+
+.form-select{
+  border-radius: 1.25rem !important;
+}
+
+.css-1s2u09g-control{
+  border-radius: 1.25rem !important;
+  width: 630px;
+}
+
+.css-b62m3t-container{
+  margin: 0px;
+}
+
+.form-control-file{
+  /* background-color: #A409E6  !important; */
+  border-color: #DCBAF2 !important;
+  /* border-radius: 15px !important; */
+}
