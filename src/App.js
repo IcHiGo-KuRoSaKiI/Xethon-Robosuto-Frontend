@@ -15,12 +15,18 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <PrivateRoute path="/dashboard" isLoggedIn={type2} />
+          <Route exact path="/dashboard" isLoggedIn={type2} />
           <Route path="/register">
             <Register />
           </Route>
           <Route exact path="/">
             <Login />
+          </Route>
+          <Route path="/StudentHome">
+            <StudentHome />
+          </Route>
+          <Route path="/AdminHome">
+            <RaiseQuery />
           </Route>
         </Switch>
       </div>

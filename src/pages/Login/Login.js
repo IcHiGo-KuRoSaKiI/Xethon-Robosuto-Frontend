@@ -6,6 +6,11 @@ import { Link, Redirect } from "react-router-dom";
 import Select from 'react-select';
 import { useStateValue } from "../../StateProvider"
 import endPoints from "../../utils/EndPointApi"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 const actions = [
   { label: "Admin", value: 1 },
@@ -107,7 +112,8 @@ function Login() {
   if (authenticate == true) {
     console.log("login clicked", isLoggedIn, type)
     sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
-    return <Redirect to="/dashboard" />
+    if ( type == "Student") { return <Redirect to="/StudentHome" /> }
+    else {  return <Redirect to="/AdminHome" /> }
   }
 
 
