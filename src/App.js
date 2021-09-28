@@ -6,6 +6,8 @@ import PrivateRoute from './PrivateRoute';
 import StudentHome from "./pages/Student/StudentHome";
 import RaiseQuery from "./pages/Admin/ViewIssues";
 import { useStateValue } from "./StateProvider"
+import EmployeeHome from './pages/Employee/EmployeeHome'
+ 
 
 function App() {
   // const loginStatus = JSON.parse(sessionStorage.getItem("isLoggedIn"));
@@ -27,6 +29,9 @@ function App() {
           </Route>
           <Route path="/AdminHome">
             <RaiseQuery />
+          </Route>
+          <Route path="/EmployeeHome">
+            <EmployeeHome />
           </Route>
         </Switch>
       </div>
