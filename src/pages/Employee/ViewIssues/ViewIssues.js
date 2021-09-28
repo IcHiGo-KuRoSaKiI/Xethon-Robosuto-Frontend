@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import QueryAccordian2 from "../../Admin/IssuesAccordian/IssueAccordian2"
+import QueryAccordian2 from "../../Components/QueryAccordian/QueryAccordian/QueryAccordian2"
+import Issues from "../../../SampleData/issues"
 
 function ViewIssues(props) {
   return (
@@ -21,9 +22,11 @@ function ViewIssues(props) {
       </Row>
       <hr />
       <br />
-      <QueryAccordian2 id="1" title="title1" description="IT1 blah blah1" status="solved" />
-      <QueryAccordian2 id="2" title="title2" description="IT2 blah blah2" status="solved" />
-      <QueryAccordian2 id="3" title="title3" description="IT3 blah blah3" status="solved" />
+      {Issues.map((issue, idx) => {
+        return (
+          <QueryAccordian2 id={issue.issueID} title={issue.issueTitle} description={issue.issueDescription} status={issue.issueStatus} />
+        )
+      })}
     </Container>
   );
 }

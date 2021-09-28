@@ -58,16 +58,6 @@ function QueryAccordian({ number, id, department, status }) {
     <Accordion>
       <Accordion.Item eventKey="0">
         <Accordion.Header>Issue {number}
-          {/* <Rating
-            onClick={handleRating}
-            ratingValue={rating}
-            size={20}
-            label
-            transition
-            fillColor='orange'
-            emptyColor='gray'
-            className='foo' // Will remove the inline style if applied
-          /> */}
         </Accordion.Header>
         <Accordion.Body>
           <Row className="justify-content-around">

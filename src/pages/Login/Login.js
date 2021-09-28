@@ -4,9 +4,9 @@ import './Login.css'
 import Login_Img from './login_img.jpeg'
 import { Link, Redirect } from "react-router-dom";
 import Select from 'react-select';
-import { useStateValue } from "../../StateProvider"
+// import { useStateValue } from "../../StateProvider"
 import endPoints from "../../utils/EndPointApi"
-
+import Users from "../../SampleData/employees"
 const actions = [
   { label: "Admin", value: 1 },
   { label: "Student", value: 2 },
@@ -14,10 +14,8 @@ const actions = [
 ];
 
 function Login() {
-  const [loginData, setLoginObject] = useStateValue()
-  // const [loginData , setLoginObject ] = useState("")
-
-  const [reducerState, dispatch] = useStateValue()
+  // const [loginData, setLoginObject] = useStateValue()
+  // const [reducerState, dispatch] = useStateValue()
   const [selectedType, setSelectedType] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -26,11 +24,6 @@ function Login() {
   const [authenticate, setAuthenticated] = useState(false)
   let history = useHistory();
 
-  const LoginHandler2 = () => {
-    console.log("login clicked", isLoggedIn, type)
-    sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
-    history.push("/dashboard");
-  }
 
   const emailChangeHandler = (event) => {
     console.log(event.target.value)
@@ -52,34 +45,45 @@ function Login() {
       password: enteredPassword,
     };
     console.log(credentials)
-    const uri = endPoints.loginURL + `?username=${enteredEmail}&password=${enteredPassword}`
-    console.log("uri: ", uri)
-    showData(uri)
-      .then(data => {
-        console.log(data, "abc");
-        setLoginObject(data[0])
-        // console.log(loginData)
-        if (data[0].email) {
-          console.log("LOGIN SUCCESSFULL")
-          // sessionStorage.setItem('token', JSON.stringify(data.token));
-          setLoginObject(data)
-          console.log(loginData, " this is the login data")
-          setType(data[0].userType)
-          setAuthenticated(true)
-          dispatch({
-            type: 'USER_LOGIN',
-            type2: data[0].type,
-            sid: data._id
-          })
-          // sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
-          // history.push("/dashboard")
-        }
-        // dispatch({
-        //   type: 'USER_LOGIN',
-        //   type: data.token,
-        //   userRole: data.role
-        // }) // JSON data parsed by data.json() call
-      });
+    console.log(Users)
+    const currentUser = Users.filter((user) => user.userEmail == credentials.username && user.userPassword == credentials.password)
+    if (currentUser.userType == "Student") {
+      history.push("/StudentHome")
+    }
+    else if (currentUser.userType == "Admin") {
+      history.push("/AdminHome")
+    }
+    else if (currentUser.usertype == "Employee") {
+      history.push("/EmployeeHome")
+    }
+    // const uri = endPoints.loginURL + `?username=${enteredEmail}&password=${enteredPassword}`
+    // console.log("uri: ", uri)
+    // showData(uri)
+    //   .then(data => {
+    //     console.log(data, "abc");
+    //     // setLoginObject(data[0])
+    //     // console.log(loginData)
+    //     if (data[0].email) {
+    //       console.log("LOGIN SUCCESSFULL")
+    //       // sessionStorage.setItem('token', JSON.stringify(data.token));
+    //       // setLoginObject(data)
+    //       // console.log(loginData, " this is the login data")
+    //       setType(data[0].userType)
+    //       setAuthenticated(true)
+    //       // dispatch({
+    //       //   type: 'USER_LOGIN',
+    //       //   type2: data[0].type,
+    //       //   sid: data._id
+    //       // })
+    //       // sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
+    //       // history.push("/dashboard")
+    //     }
+    //     // dispatch({
+    //     //   type: 'USER_LOGIN',
+    //     //   type: data.token,
+    //     //   userRole: data.role
+    //     // }) // JSON data parsed by data.json() call
+    //   });
     setEnteredEmail("");
     setEnteredPassword("");
   };

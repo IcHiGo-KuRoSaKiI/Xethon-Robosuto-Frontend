@@ -2,7 +2,7 @@ import React from 'react';
 import "./QueryHistory.css"
 import { Container, Row, Col } from 'react-bootstrap';
 import QueryAccordian from '../../Components/QueryAccordian/QueryAccordian';
-
+import Issues from "../../../SampleData/issues"
 
 function QueryHistory(props) {
   return (
@@ -23,9 +23,14 @@ function QueryHistory(props) {
       </Row>
       <hr />
       <br />
-      <QueryAccordian number="1" id="1" department="IT" status="solved" />
+      {Issues.map((issue, idx) => {
+        return (
+          <QueryAccordian number={idx} id={issue.issueID} department={issue.issueDepartment} status={issue.issueStatus} solution={issue.issueSolution} />
+        )
+      })}
+      {/* <QueryAccordian number="1" id="1" department="IT" status="solved" />
       <QueryAccordian number="2" id="2" department="IT" status="solved" />
-      <QueryAccordian number="3" id="3" department="IT" status="solved" />
+      <QueryAccordian number="3" id="3" department="IT" status="solved" /> */}
     </Container>
   );
 }
