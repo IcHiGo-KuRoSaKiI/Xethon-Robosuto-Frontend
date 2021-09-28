@@ -14,6 +14,7 @@ const actions = [
 ];
 
 function Login() {
+  const [loginData , setLoginObject ] = useStateValue()
   const [reducerState, dispatch] = useStateValue()
   const [selectedType, setSelectedType] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -57,6 +58,7 @@ function Login() {
         if (data[0].email) {
           console.log("LOGIN SUCCESSFULL")
           // sessionStorage.setItem('token', JSON.stringify(data.token));
+          setLoginObject( data )
           setType(data[0].userType)
           setAuthenticated(true)
           dispatch({
@@ -107,7 +109,8 @@ function Login() {
   if (authenticate == true) {
     console.log("login clicked", isLoggedIn, type)
     sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
-    return <Redirect to="/dashboard" />
+    if ( type == "Student") { return <Redirect to="/StudentHome" /> }
+    else {  return <Redirect to="/AdminHome" /> }
   }
 
 

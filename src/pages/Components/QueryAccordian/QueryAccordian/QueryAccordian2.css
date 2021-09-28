@@ -1,0 +1,51 @@
+.accordion-item{
+  background-color: #bad8f2 !important;
+  border-radius: 20px !important;
+  margin: 15px 20px;
+}
+.accordion-button{
+  background-color: #bad8f2 !important;
+  color: black !important;
+  border-radius: 20px !important;
+  border-bottom: 0px transparent !important;
+}
+.accordion-button:focus{
+  border: #d0aae6 !important;
+}
+.query_history_button{
+  border-radius: 15px;
+  font-weight: 700;
+  background-color: white;
+  color: black;
+  border-color: blanchedalmond;
+}
+
+.solutionBox{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.button1{
+  margin: 15px 10px !important;
+}
+
+.field{
+  margin: 3px 5px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.submitButton{
+  background-color: #A409E6  !important;
+  border-color: #DCBAF2 !important;
+  border-radius: 15px !important;
+}
+
+.issueID{
+  background-color: #f5ce4d;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  padding: 5px 15px;
+  font-size: 18px;
+}
