@@ -61,7 +61,7 @@ function Login() {
           setAuthenticated(true)
           dispatch({
             type: 'USER_LOGIN',
-            type: data[0].type,
+            type2: data[0].type,
             sid: data._id
           })
           // sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
