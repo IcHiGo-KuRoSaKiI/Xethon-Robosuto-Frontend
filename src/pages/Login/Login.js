@@ -6,11 +6,6 @@ import { Link, Redirect } from "react-router-dom";
 import Select from 'react-select';
 import { useStateValue } from "../../StateProvider"
 import endPoints from "../../utils/EndPointApi"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
 
 const actions = [
   { label: "Admin", value: 1 },
