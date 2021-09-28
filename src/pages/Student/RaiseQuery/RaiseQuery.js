@@ -15,13 +15,13 @@ const departments = [
 ];
 
 function RaiseQuery(props) {
-  const [loginData , setLoginObject ] = useStateValue()
+  const [loginData, setLoginObject] = useStateValue()
   const [alert, setAlert] = useState(false)
   const [reducerState, dispatch] = useStateValue()
   // const [selectedType, setSelectedType] = useState("");
-  const [selectedDepartment, setSelectedDepartment ] = useState("");
-  const [userIssueTitle, setUserIssueTitle ] = useState("");
-  const[userIssue , setUserIssue] = useState("");
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [userIssueTitle, setUserIssueTitle] = useState("");
+  const [userIssue, setUserIssue] = useState("");
   const [username, setUsername] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -51,7 +51,7 @@ function RaiseQuery(props) {
     setAlert(true)
     event.target.reset()
     const credentials = {
-      userType: selectedType,
+      userType: type,
       username: enteredEmail,
       password: enteredPassword,
       Department: selectedDepartment
@@ -64,7 +64,7 @@ function RaiseQuery(props) {
       <Form onSubmit={FormSubmitHandler}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label><b>Issue Title</b></Form.Label>
-          <Form.Control type="text"  onChange={userIsueTitleHandler} required />
+          <Form.Control type="text" onChange={userIsueTitleHandler} required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label><b>Issue Description</b></Form.Label>
@@ -74,7 +74,7 @@ function RaiseQuery(props) {
 
           <Form.Label ><b>Issue category</b></Form.Label>
           {/* <Select options={departments} id="drop_down_signup" onChange={userDepartmentHandler} /> */}
-          <Form.Select onChange ={userDepartmentHandler}  required>
+          <Form.Select onChange={userDepartmentHandler} required>
             <option>Open this select menu</option>
             <option value="AI">Artificial Intelligence</option>
             <option value="Big_Data" >Big Data</option>

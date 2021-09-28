@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import "./EmployeeHome.css"
 import ViewIssues from './ViewIssues/ViewIssues';
 import IssueApprovals from './IssueApprovals/IssueApprovals';
+import LeaderBoard from '../Components/LeaderBoard/LeaderBoard';
 
 function EmployeeHome(props) {
   return (
@@ -16,13 +17,16 @@ function EmployeeHome(props) {
           <TabList>
             <Tab><h4><b>View Issues</b></h4></Tab>
             <Tab><h4><b>View Approval Status</b></h4></Tab>
-            {/* <Tab><h4><b>Query Tracker</b></h4></Tab> */}
+            <Tab><h4><b>LeaderBoard</b></h4></Tab>
           </TabList>
           <TabPanel>
             <ViewIssues />
           </TabPanel>
           <TabPanel>
             <IssueApprovals />
+          </TabPanel>
+          <TabPanel>
+            <LeaderBoard />
           </TabPanel>
         </Tabs>
       </Container>

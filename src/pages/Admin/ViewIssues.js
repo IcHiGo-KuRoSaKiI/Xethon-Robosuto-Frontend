@@ -11,6 +11,7 @@ import IssueAccordian from './IssuesAccordian/IssueAccordian';
 import IssueAccordian2 from './IssuesAccordian/IssueAccordian2';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom"
+import LeaderBoard from "../Components/LeaderBoard/LeaderBoard";
 
 function RaiseQuery(props) {
   const [key, setKey] = useState('home');
@@ -23,6 +24,7 @@ function RaiseQuery(props) {
             <Tab><h4><b>View Issues</b></h4></Tab>
             <Tab><h4><b>View Statistics</b></h4></Tab>
             <Tab><h4><b>View Approvals</b></h4></Tab>
+            <Tab><h4><b>LeaderBoard</b></h4></Tab>
           </TabList>
 
           <TabPanel>
@@ -49,6 +51,9 @@ function RaiseQuery(props) {
             <IssueAccordian2 number="2" id="123456789" department="IT" name="solved" details="ohohoho" />
             <IssueAccordian2 number="3" id="123456789" department="IT" name="solved" details="ohohoho" />
 
+          </TabPanel>
+          <TabPanel>
+            <LeaderBoard />
           </TabPanel>
         </Tabs>
       </Container>
