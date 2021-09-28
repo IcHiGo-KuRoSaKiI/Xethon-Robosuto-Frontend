@@ -17,6 +17,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          {/* TODO:Have to do private routing */}
           <Route exact path="/dashboard" isLoggedIn={type2} />
           <Route path="/register">
             <Register />
