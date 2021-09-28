@@ -14,7 +14,8 @@ const actions = [
 ];
 
 function Login() {
-  const [loginData , setLoginObject ] = useStateValue()
+  const [loginData , setLoginObject ] = useState("")
+
   const [reducerState, dispatch] = useStateValue()
   const [selectedType, setSelectedType] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -55,10 +56,12 @@ function Login() {
     showData(uri)
       .then(data => {
         console.log(data, "abc");
+        setLoginObject( data[0] )
+        // console.log(loginData)
         if (data[0].email) {
           console.log("LOGIN SUCCESSFULL")
           // sessionStorage.setItem('token', JSON.stringify(data.token));
-          setLoginObject( data )
+              console.log(loginData , " this is the login data")
           setType(data[0].userType)
           setAuthenticated(true)
           dispatch({
