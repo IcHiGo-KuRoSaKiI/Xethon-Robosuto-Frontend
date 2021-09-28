@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form'
 import Select from 'react-select';
 import { useStateValue } from "../../../StateProvider"
 import { useHistory } from "react-router-dom"
+import endPoints from "../../../utils/EndPointApi"
 
 const departments = [
   { label: "Artificial Intelligence", value: "AI" },
@@ -31,7 +32,7 @@ function RaiseQuery(props) {
   let history = useHistory();
 
   const userDepartmentHandler = (event) => {
-    setSelectedDepartment(event.value);
+    setSelectedDepartment(event.target.value);
     console.log(event.target.value)
   };
   const userIssueDescriptionHandler = (event) => {
@@ -55,7 +56,60 @@ function RaiseQuery(props) {
       username: enteredEmail,
       password: enteredPassword,
       Department: selectedDepartment
+    }
+    const dataToSend = {
+      username: username,
+      Department: selectedDepartment,
+      queryTitle: userIssueTitle,
+      query: userIssue,
+      login: loginData
     };
+    console.log(dataToSend)
+    const uri = endPoints.queryUrl
+    console.log("uri: ", uri)
+    postData(uri, dataToSend)
+      .then(data => {
+        console.log(data, "THis is a test result ");
+        if (data) {
+          console.log("Query Submitted Successfully");
+          // sessionStorage.setItem('isLoggedIn', JSON.stringify(type));
+          // history.push("/dashboard")
+        } else {
+          console.log("Failed")
+        }
+        // dispatch({
+        //   type: 'USER_LOGIN',
+        //   type: data.token,
+        //   userRole: data.role
+        // }) // JSON data parsed by data.json() call
+      });
+  }
+
+  async function postData(url, data) {
+    console.log(data)
+    const response = await fetch(url, {
+      // mode: 'no-cors',
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  }
+
+  async function showData(url) {
+    // setIsLoading(true)
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    const Data = await response.json();
+    // setIsLoading(false)
+    return Data
   }
 
   return (
@@ -71,7 +125,6 @@ function RaiseQuery(props) {
           <Form.Control as="textarea" onChange={userIssueDescriptionHandler} rows={2} required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-
           <Form.Label ><b>Issue category</b></Form.Label>
           {/* <Select options={departments} id="drop_down_signup" onChange={userDepartmentHandler} /> */}
           <Form.Select onChange={userDepartmentHandler} required>
